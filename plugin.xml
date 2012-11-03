@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="Agilefant Preferences"
+            class="net.junel.mylyn.plugin.agilefant.preferences.MylynAgilefantPreferencePage"
+            id="net.junel.mylyn.plugin.agilefant.preferences.MylynAgilefantPreferencePage">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="net.junel.mylyn.plugin.agilefant.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Agilefant"
+            id="AgilefantMylynPlugin">
+      </category>
+      <view
+            name="Burndown view"
+            icon="icons/sample.gif"
+            category="AgilefantMylynPlugin"
+            class="net.junel.mylyn.plugin.agilefant.view.BurndownView"
+            id="net.junel.mylyn.plugin.agilefant.view.BurndownView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.ProblemView"
+               relationship="right"
+               id="agilefantmylynplugin.views.SampleView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+
+</plugin>
